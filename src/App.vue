@@ -2,7 +2,11 @@
   <div class="home">
     <NavBar />
     <main>
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </main>
   </div>
 </template>
@@ -38,9 +42,18 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 20px;
   margin-top: 4rem;
   padding-bottom: 4rem;
+}
+.fade-enter-active {
+  animation: fadeIn;
+  animation-duration: 0.5s;
+}
+
+.fade-leave-active {
+  animation: fadeOutLeft;
+  animation-duration: 0.5s;
 }
 </style>

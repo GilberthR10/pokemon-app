@@ -35,9 +35,10 @@
           />
         </template>
       </Column>
+      <template #empty>No has seleccionado un pokémon</template>
     </DataTable>
     <Dialog
-      v-model:visible="deleteProductDialog"
+      v-model:visible="deletePokemonDiolog"
       :style="{ width: '450px' }"
       header="Confirmar"
       :modal="true"
@@ -53,10 +54,10 @@
           label="No"
           icon="pi pi-times"
           class="p-button-text"
-          @click="deleteProductDialog = false"
+          @click="deletePokemonDiolog = false"
         />
         <Button
-          label="Yes"
+          label="Si"
           icon="pi pi-check"
           class="p-button-text"
           @click="deleteProduct"
@@ -74,7 +75,7 @@ import Dialog from "primevue/dialog";
 import { ref, computed } from "vue";
 import { useStore } from "vuex";
 
-const deleteProductDialog = ref(false);
+const deletePokemonDiolog = ref(false);
 const pokemon = ref(null);
 const store = useStore();
 
@@ -85,16 +86,20 @@ const addFavorites = (data) => {
 
 const confirmDeletePokemon = (data) => {
   pokemon.value = data;
-  deleteProductDialog.value = true;
+  deletePokemonDiolog.value = true;
 };
 
 const deleteProduct = () => {
-  deleteProductDialog.value = false;
+  deletePokemonDiolog.value = false;
   store.dispatch("pokemon/removePokemonFromInfo", pokemon.value);
 };
 </script>
 
 <style scoped>
+.p-datatable .p-datatable-tbody > tr > td > img {
+  width: 100px;
+  height: 100px;
+}
 .data-container {
   margin: 1rem auto;
   width: 100%;

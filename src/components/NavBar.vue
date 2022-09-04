@@ -27,10 +27,10 @@ const items = ref([
   },
 ]);
 </script>
-<style>
+<style scoped>
 .p-component {
   font-family: pokefont;
-  font-size: larger;
+  font-size: 1.8rem;
 }
 .p-menubar {
   justify-content: space-between;

@@ -9,7 +9,7 @@ span.legend {
     font-family: pokefont;
     font-size: 1.5rem;
     font-weight: 100;
-    margin: 0 1rem;
+    margin: 0;
   }
   .p-fieldset .p-fieldset-legend {
     border: none;
@@ -27,4 +27,7 @@ span.legend {
     font-family: pokefont;
     font-size: 1.5rem;
     font-weight: 100;
+  }
+  .p-menubar {
+    background-color: lightgray;
   }

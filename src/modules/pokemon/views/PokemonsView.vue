@@ -1,5 +1,5 @@
 <template>
-  <div class="pokemons-container" v-if="!loading">
+  <div class="pokemons-container">
     <!-- Lista de pokemones -->
     <pokemon-list />
     <!-- pokemon table -->
@@ -10,13 +10,13 @@
 <script setup>
 import PokemonList from "@/modules/pokemon/components/PokemonList";
 import PokemonTable from "@/modules/pokemon/components/PokemonTable";
-import { computed } from "vue";
+/* import { computed } from "vue"; */
 import { useStore } from "vuex";
 
 const store = useStore();
 const loadPokemons = () => store.dispatch("pokemon/getPokemonsList");
 // get getter
-const loading = computed(() => store.getters["pokemon/loading"]);
+/* const loading = computed(() => store.getters["pokemon/isLoading"]); */
 loadPokemons();
 </script>
 
