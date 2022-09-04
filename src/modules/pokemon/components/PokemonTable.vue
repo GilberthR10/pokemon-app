@@ -14,7 +14,7 @@
           <Button
             label="Agregar"
             class="p-button-info"
-            @click="addFavorites(slotProps.data)"
+            @click="onAddToFavorites(slotProps.data)"
           />
         </template>
       </Column>
@@ -60,7 +60,7 @@
           label="Si"
           icon="pi pi-check"
           class="p-button-text"
-          @click="deleteProduct"
+          @click="onDeletePokemon"
         />
       </template>
     </Dialog>
@@ -72,16 +72,17 @@ import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Button from "primevue/button";
 import Dialog from "primevue/dialog";
-import { ref, computed } from "vue";
-import { useStore } from "vuex";
+import { ref } from "vue";
+import usePokemon from "../composables/usePokemon";
+
+const { addPokemonToFavorites, deletePokemonFromInfo, infoPokemon } =
+  usePokemon();
 
 const deletePokemonDiolog = ref(false);
 const pokemon = ref(null);
-const store = useStore();
 
-const infoPokemon = computed(() => store.getters["pokemon/getPokemonsInfo"]);
-const addFavorites = (data) => {
-  store.dispatch("pokemon/addPokemonToFavorites", data);
+const onAddToFavorites = (data) => {
+  addPokemonToFavorites(data);
 };
 
 const confirmDeletePokemon = (data) => {
@@ -89,9 +90,9 @@ const confirmDeletePokemon = (data) => {
   deletePokemonDiolog.value = true;
 };
 
-const deleteProduct = () => {
+const onDeletePokemon = () => {
   deletePokemonDiolog.value = false;
-  store.dispatch("pokemon/removePokemonFromInfo", pokemon.value);
+  deletePokemonFromInfo(pokemon.value);
 };
 </script>
 

@@ -3,7 +3,7 @@
     <h1>Tus Favoritos</h1>
     <div class="pokemon-list">
       <PokemonCard
-        v-for="pokemon in pokemons"
+        v-for="pokemon in pokemonsFavorites"
         :key="pokemon.id"
         :pokemon="pokemon"
       />
@@ -12,12 +12,10 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useStore } from "vuex";
 import PokemonCard from "../components/PokemonCard.vue";
+import usePokemon from "../composables/usePokemon";
 
-const store = useStore();
-const pokemons = computed(() => store.getters["pokemon/getFavoritesPokemons"]);
+const { pokemonsFavorites } = usePokemon();
 </script>
 
 <style scoped>

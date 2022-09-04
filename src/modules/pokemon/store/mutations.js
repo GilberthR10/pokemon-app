@@ -13,7 +13,7 @@ export const setFavoritesPokemons = (state, pokemon) => {
     (favPokemon) => favPokemon.name === pokemon.name
   );
   if (!isPokemon) {
-    state.favoritesPokemons.push(pokemon);
+    state.favoritesPokemons = [pokemon, ...state.favoritesPokemons];
   }
 };
 
@@ -30,7 +30,7 @@ export const setPokemonsInfo = (state, pokemon) => {
     (favPokemon) => favPokemon.name === pokemon.name
   );
   if (!isPokemon) {
-    state.pokemonsInfo.push(pokemon);
+    state.pokemonsInfo = [pokemon, ...state.pokemonsInfo];
   }
 };
 

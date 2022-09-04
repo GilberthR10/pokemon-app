@@ -12,22 +12,20 @@
 
 <script setup>
 import Button from "primevue/button";
-import { useStore } from "vuex";
 import { computed } from "vue";
+import usePokemon from "../composables/usePokemon";
 
-const store = useStore();
+const { handlePaginationPrevious, handlePaginationNext, offsetPage } =
+  usePokemon();
 
-const offset = computed(() => store.getters["pokemon/getOffset"]);
 const disabled = computed(() => {
-  return offset.value === 0;
+  return offsetPage.value === 0;
 });
 const handleBefore = () => {
-  store.dispatch("pokemon/decrementOffset", 10);
-  store.dispatch("pokemon/getPokemonsList");
+  handlePaginationPrevious(10);
 };
 const handleNext = () => {
-  store.dispatch("pokemon/incrementOffset", 10);
-  store.dispatch("pokemon/getPokemonsList");
+  handlePaginationNext(10);
 };
 </script>
 

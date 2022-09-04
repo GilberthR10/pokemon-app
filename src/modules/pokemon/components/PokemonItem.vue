@@ -1,15 +1,15 @@
 <template>
   <span class="container" v-if="pokemon">
     <p>{{ pokemon.name }}</p>
-    <Button label="Info" class="p-button-info" @click="addToFavorites" />
+    <Button label="Info" class="p-button-info" @click="addPokemonToDataTable" />
   </span>
 </template>
 
 <script setup>
 import Button from "primevue/button";
-import { useStore } from "vuex";
+import usePokemon from "../composables/usePokemon";
 
-const store = useStore();
+const { addPokemonToInfo } = usePokemon();
 
 // eslint-disable-next-line no-undef
 const props = defineProps({
@@ -19,8 +19,8 @@ const props = defineProps({
   },
 });
 
-const addToFavorites = () => {
-  store.dispatch("pokemon/addPokemonToInfo", props.pokemon);
+const addPokemonToDataTable = () => {
+  addPokemonToInfo(props.pokemon);
 };
 </script>
 

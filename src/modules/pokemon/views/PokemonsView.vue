@@ -2,7 +2,7 @@
   <div class="pokemons-container">
     <!-- Lista de pokemones -->
     <pokemon-list />
-    <!-- pokemon table -->
+    <!-- pokemon datatable -->
     <pokemon-table />
   </div>
 </template>
@@ -10,13 +10,10 @@
 <script setup>
 import PokemonList from "@/modules/pokemon/components/PokemonList";
 import PokemonTable from "@/modules/pokemon/components/PokemonTable";
-/* import { computed } from "vue"; */
-import { useStore } from "vuex";
+import usePokemon from "../composables/usePokemon";
 
-const store = useStore();
-const loadPokemons = () => store.dispatch("pokemon/getPokemonsList");
-// get getter
-/* const loading = computed(() => store.getters["pokemon/isLoading"]); */
+const { loadPokemons } = usePokemon();
+
 loadPokemons();
 </script>
 

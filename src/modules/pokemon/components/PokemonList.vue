@@ -7,7 +7,7 @@
       <div class="pokemon-list">
         <template v-if="!loading">
           <PokemonItem
-            v-for="pokemon in pokemons"
+            v-for="pokemon in pokemonList"
             :key="pokemon.id"
             :pokemon="pokemon"
           />
@@ -27,12 +27,10 @@ import Fieldset from "primevue/fieldset";
 import PokemonItem from "./PokemonItem.vue";
 import PokeListSkeleton from "./PokeListSkeleton.vue";
 import RowsButtonsNavigations from "./RowsButtonsNavigations.vue";
-import { useStore } from "vuex";
-import { computed } from "vue";
 
-const store = useStore();
-const pokemons = computed(() => store.getters["pokemon/pokemonsList"]);
-const loading = computed(() => store.getters["pokemon/isLoading"]);
+import usePokemon from "../composables/usePokemon";
+
+const { pokemonList, loading } = usePokemon();
 </script>
 
 <style scoped>
