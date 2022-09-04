@@ -1,0 +1,30 @@
+@font-face {
+  font-family: pokefont;
+  src: url(./assets/Fonts/Pocket-Monk.otf);
+}
+html {
+  font-family: pokefont;
+}
+span.legend {
+    font-family: pokefont;
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin: 0 1rem;
+  }
+  .p-fieldset .p-fieldset-legend {
+    border: none;
+    background: none;
+    padding: 0;
+  }
+
+  .p-datatable .p-datatable-tbody > tr > td {
+    font-family: pokefont;
+    font-size: 1.3rem;
+    font-weight: 100;
+  }
+
+  .p-datatable .p-datatable-thead > tr > th {
+    font-family: pokefont;
+    font-size: 1.5rem;
+    font-weight: 100;
+  }

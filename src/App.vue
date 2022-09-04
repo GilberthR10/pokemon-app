@@ -1,30 +1,46 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <div class="home">
+    <NavBar />
+    <main>
+      <router-view />
+    </main>
+  </div>
 </template>
-
+<script setup>
+import NavBar from "@/components/NavBar.vue";
+</script>
 <style>
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
-
-nav {
-  padding: 30px;
+.p-button-info {
+  width: 100px;
+  font-family: pokefont;
 }
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.home {
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  height: 100vh;
+  max-width: 1220px;
+  margin: 0 auto;
 }
-
-nav a.router-link-exact-active {
-  color: #42b983;
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
+  margin-top: 4rem;
+  padding-bottom: 4rem;
 }
 </style>
