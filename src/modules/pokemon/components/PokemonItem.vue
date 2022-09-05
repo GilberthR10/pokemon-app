@@ -1,5 +1,5 @@
 <template>
-  <span class="container" v-if="pokemon">
+  <span class="pokemon-list__item" v-if="pokemon">
     <p>{{ pokemon.name }}</p>
     <Button label="Info" class="p-button-info" @click="addPokemonToDataTable" />
   </span>
@@ -25,7 +25,7 @@ const addPokemonToDataTable = () => {
 </script>
 
 <style scoped>
-.container {
+.pokemon-list__item {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;

@@ -22,7 +22,8 @@ npm run test:unit
 
 ### Run your end-to-end tests
 ```
-npm run test:e2e
+npm run serve
+npx cypress open
 ```
 
 ### Lints and fixes files
