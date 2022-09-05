@@ -2,6 +2,7 @@ import FavoritesView from "@/modules/pokemon/views/FavoritesView.vue";
 import PokemonsView from "@/modules/pokemon/views/PokemonsView.vue";
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import NotFoundVue from "@/views/NotFound.vue";
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: "/favoritos",
     name: "favoritesPokemons",
     component: FavoritesView,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "notFound",
+    component: NotFoundVue,
   },
 ];
 

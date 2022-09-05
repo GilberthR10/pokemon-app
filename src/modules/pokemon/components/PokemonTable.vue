@@ -4,7 +4,7 @@
       :value="infoPokemon"
       :paginator="true"
       :rows="5"
-      :rowsPerPageOptions="[5, 10]"
+      :rowsPerPageOptions="[5, 10, 15]"
       responsiveLayout="scroll"
       paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
       currentPageReportTemplate="Mostrando registro del {first} al {last} de un total de {totalRecords} registros"
