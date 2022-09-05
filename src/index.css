@@ -4,6 +4,7 @@
 }
 html {
   font-family: pokefont;
+  letter-spacing: 2px;
 }
 span.legend {
     font-family: pokefont;
